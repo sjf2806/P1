@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="inventory.css">
+    <script defer src="inventory.js"></script>
+    <title>KitchenKompanion</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Kitchen<div id="h1-half">Kompanion</div></h1>
+
+        <div class="filter-options">
+            <button class="filter-button active" data-filter="all">All</button>
+            <button class="filter-button" data-filter="meats">Meats</button>
+            <button class="filter-button" data-filter="vegetables">Vegetables</button>
+            <button class="filter-button" data-filter="dairy">Dairy</button>
+            <button class="filter-button" data-filter="fruits">Fruits</button>
+            <button class="filter-button" data-filter="frozen">Frozen</button>
+        </div>
+
+        <div class="input-section">
+            <select id="category-select">
+                <option value="meats">Meats</option>
+                <option value="vegetables">Vegetables</option>
+                <option value="dairy">Dairy</option>
+                <option value="fruits">Fruits</option>
+                <option value="frozen">Frozen</option>
+            </select>
+            <input type="text" id="item-input" placeholder="Enter item name">
+            <input type="number" id="quantity-input" placeholder="Enter quantity" min="1" value="1">
+        
+            <select id="allergen-select">
+                <option value="">Select allergen (optional)</option>
+                <option value="peanuts">Peanuts</option>
+                <option value="gluten">Gluten</option>
+                <option value="lactose">Lactose</option>
+                <option value="fish">Fish</option>
+            </select>
+        
+            <button id="add-item-button">Add Item</button>
+        </div>
+
+        <div class="tab-content">
+            <div class="inventory-category">
+                <h2>Your Stock</h2>
+                <div class="subsection" id="items-list">
+                </div>
+            </div>
+        
+            <div class="inventory-category">
+                <h2>Refrigerator Stock</h2>
+                <div class="subsection" id="refrigerator-items-list">
+                    <div class="sub-item" data-category="meats">
+                        <img src="meatsIcon.png" alt="Steak">
+                        <p>Steak</p>
+                        <p class="item-count">Qty: 3</p>
+                    </div>
+                    <div class="sub-item" data-category="dairy">
+                        <img src="dairyIcon.png" alt="Milk">
+                        <p>Milk</p>
+                        <p class="item-count">Qty: 2</p>
+                    </div>
+                    <div class="sub-item" data-category="fruits">
+                        <img src="fruitsIcon.png" alt="Apples">
+                        <p>Apples</p>
+                        <p class="item-count">Qty: 5</p>
+                    </div>
+                    <div class="sub-item" data-category="dairy">
+                        <img src="dairyIcon.png" alt="Butter">
+                        <p>Butter</p>
+                        <p class="item-count">Qty: 1</p>
+                    </div>
+                    <div class="sub-item" data-category="dairy">
+                        <img src="dairyIcon.png" alt="Eggs">
+                        <p>Eggs</p>
+                        <p class="item-count">Qty: 12</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <ul class="tabs">
+            <li class="tab" id="active"><a href="inventory.html"><img src="inventory.png" /><br>Inventory</a></li>
+            <li class="tab"><a href="shoppingList.html"><img src="shoppingIcon.png" /><br>Shopping List</a></li>
+            <li class="tab"><a href="recipe.html"><img src="chef.png"/><br>Recipes</a></li>
+            <li class="tab"><a href="profile.html"><img src="user.png"/><br>Profile</a></li>
+        </ul>
+    </div>
+</body>
+</html>

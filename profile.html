@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Basic HTML5 Document">
+    <meta name="keywords" content="HTML5, Responsive">
+    <link rel="stylesheet" href="profile.css">
+    <script defer src="main1.js"></script>
+    <title>KitchenKompanion</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="tab-content">
+            <div id="text" data-tab-content class="active">
+                <h1>Kitchen<div id="h1-half">Kompanion</div></h1>
+
+                <div style="display: flex; align-items: center;">
+                    <div class="green">Favorite Groceries</div>
+                    <div class="add-item">
+                        <img src="scroll_icons/add.png" class="add-item" onclick="openAddModelGroc(favGrocery, allGrocerySet, 'grocery')"/>
+                    </div>
+                </div>
+
+                <div class="scrollmenu-gro">
+                </div>
+                
+
+                <div style="display: flex; align-items: center;">
+                    <div class="green">Favorite Recipes</div>
+                    <div class="add-item">
+                        <img src="scroll_icons/add.png" class="add-item" onclick="openAddModelRec(favMeals, allMealsSet, 'meal')"/>
+                    </div>
+                </div>
+
+                <div class="scrollmenu-fav">
+                </div>
+
+
+                <div style="display: flex; align-items: center;">
+                    <div class="green">Allergies</div>
+                    <div class="add-item">
+                        <img src="scroll_icons/add.png" class="add-item" onclick="openAddModel(favAllergies, allAllergies, 'allergy')"/>
+                    </div>
+                </div>
+                
+                <div class="scrollmenu">
+                </div>
+
+                <div id="mealModal" class="modal">
+                    <div class="modal-overlay"></div>
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('mealModal')">&times;</span>
+                        <h2 class="modal-name"></h2>
+                        <h4 class="model-ing-title">Ingredients:</h4>
+                        <ul class="modal-ingredients"></ul>
+                    </div>
+                </div>
+
+                <div id="addModal" class="modal">
+                    <div class="modal-overlay"></div>
+                    <div class="modal-content">
+                        <span class="close" onclick="closeAddModal()">&times;</span>
+                        <h2>Add Item</h2>
+                        <strong id="color-main">Name: </strong><input type="text" id="new" placeholder="New Item To Add..."><br><br>
+                        <strong id="color-main">Category: </strong><select></select>
+                        <button id="addToFavButton">Add to Favorites</button>
+                        <hr>
+                        <div class="meal-pics"></div>
+                    </div>
+                </div>
+
+                <div id="addModalRec" class="modal">
+                    <div class="modal-overlay"></div>
+                    <div class="modal-content">
+                        <span class="close" onclick="closeAddModalRec()">&times;</span>
+                        <h2>Add Item</h2>
+                        <strong id="color-main">Name: </strong><input type="text" id="new" placeholder="New Item To Add..."><br><br>
+                        <strong id="color-main">Ingredients: </strong><textarea id="ingredients-list" rows="3" cols="40" placeholder="Seperate items by ',' ex; ing1,ing2,..."></textarea><br><br>
+                        <strong id="color-main">Skill Level: </strong><select></select>
+                        <button id="addToFavButton3">Add to Favorites</button>
+                        <hr>
+                        <div class="meal-pics"></div>
+                    </div>
+                </div>
+
+                <div id="addModalAllergy" class="modal">
+                    <div class="modal-overlay"></div>
+                    <div class="modal-content">
+                        <span class="close" onclick="closeAddModalAllergy()">&times;</span>
+                        <h2>Add Item</h2>
+                        <select></select>
+                        <button id="addToFavButton2">Add to Favorites</button>
+                        <hr>
+                        <div class="meal-pics"></div>
+                    </div>
+                </div>
+
+                <div id="removeModal" class="modal">
+                    <div class="modal-overlay"></div>
+                    <div class="modal-content">
+                        <span class="close" onclick="closeAddModal()">&times;</span>
+                        <h2>Remove Item</h2>
+                        <select></select>
+                        <button id="removeFavButton">Add to Favorites</button>
+                        <div class="meal-pics"></div>
+                    </div>
+                </div>
+
+                <div class="virtual-keyboard" id="virtualKeyboard">
+                    <div class="keyboard-close" onclick="toggleKeyboard(false)">✕</div>
+                    <div class="keyboard-row">
+                        <div class="key" onclick="handleKeyClick('1')">1</div>
+                        <div class="key" onclick="handleKeyClick('2')">2</div>
+                        <div class="key" onclick="handleKeyClick('3')">3</div>
+                        <div class="key" onclick="handleKeyClick('4')">4</div>
+                        <div class="key" onclick="handleKeyClick('5')">5</div>
+                        <div class="key" onclick="handleKeyClick('6')">6</div>
+                        <div class="key" onclick="handleKeyClick('7')">7</div>
+                        <div class="key" onclick="handleKeyClick('8')">8</div>
+                        <div class="key" onclick="handleKeyClick('9')">9</div>
+                        <div class="key" onclick="handleKeyClick('0')">0</div>
+                    </div>
+                    <div class="keyboard-row">
+                        <div class="key" onclick="handleKeyClick('q')">Q</div>
+                        <div class="key" onclick="handleKeyClick('w')">W</div>
+                        <div class="key" onclick="handleKeyClick('e')">E</div>
+                        <div class="key" onclick="handleKeyClick('r')">R</div>
+                        <div class="key" onclick="handleKeyClick('t')">T</div>
+                        <div class="key" onclick="handleKeyClick('y')">Y</div>
+                        <div class="key" onclick="handleKeyClick('u')">U</div>
+                        <div class="key" onclick="handleKeyClick('i')">I</div>
+                        <div class="key" onclick="handleKeyClick('o')">O</div>
+                        <div class="key" onclick="handleKeyClick('p')">P</div>
+                    </div>
+                    <div class="keyboard-row">
+                        <div class="key" onclick="handleKeyClick('a')">A</div>
+                        <div class="key" onclick="handleKeyClick('s')">S</div>
+                        <div class="key" onclick="handleKeyClick('d')">D</div>
+                        <div class="key" onclick="handleKeyClick('f')">F</div>
+                        <div class="key" onclick="handleKeyClick('g')">G</div>
+                        <div class="key" onclick="handleKeyClick('h')">H</div>
+                        <div class="key" onclick="handleKeyClick('j')">J</div>
+                        <div class="key" onclick="handleKeyClick('k')">K</div>
+                        <div class="key" onclick="handleKeyClick('l')">L</div>
+                    </div>
+                    <div class="keyboard-row">
+                        <div class="key" onclick="handleKeyClick('z')">Z</div>
+                        <div class="key" onclick="handleKeyClick('x')">X</div>
+                        <div class="key" onclick="handleKeyClick('c')">C</div>
+                        <div class="key" onclick="handleKeyClick('v')">V</div>
+                        <div class="key" onclick="handleKeyClick('b')">B</div>
+                        <div class="key" onclick="handleKeyClick('n')">N</div>
+                        <div class="key" onclick="handleKeyClick('m')">M</div>
+                    </div>
+                    <div class="keyboard-row">
+                        <div class="key key-space" onclick="handleKeyClick(' ')">Space</div>
+                        <div class="key key-backspace" onclick="handleKeyClick('Backspace')">Backspace</div>
+                        
+                    </div>
+                </div>
+           </div>
+
+        </div>
+
+        <ul class="tabs">
+            <li class="tab"><a href="inventory.html"><img src="inventory.png" /><br>Inventory</a></li>
+            <li class="tab"><a href="shoppingList.html"><img src="shoppingIcon.png" /><br>Shopping List</a></li>
+            <li class="tab"><a href="recipe.html"><img src="chef.png"/><br>Recipes</a></li>
+            <li class="tab" id="active"><a href="profile.html"><img src="user.png"/><br>Profile</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
